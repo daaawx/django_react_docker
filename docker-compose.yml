@@ -28,4 +28,6 @@ services:
       - .env
 
 volumes:
-  node-modules:
+  postgres_data:
+
+
