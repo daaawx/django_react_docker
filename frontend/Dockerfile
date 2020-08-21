@@ -6,4 +6,4 @@ COPY . .
 
 RUN npm install
 
-ENV PATH ./node_modules/.bin/:$PATH
+#ENV PATH ./node_modules/.bin/:$PATH
