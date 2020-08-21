@@ -5,5 +5,3 @@ WORKDIR /app/frontend
 COPY . .
 
 RUN npm install
-
-#ENV PATH ./node_modules/.bin/:$PATH
