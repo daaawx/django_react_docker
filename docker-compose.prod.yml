@@ -6,6 +6,7 @@ services:
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./backend:/app/backend
+      - static_volume:/app/backend/staticfiles
     expose:
       - 8000
     depends_on:
@@ -17,12 +18,12 @@ services:
     build: ./frontend
     command: "npm run build"
     volumes:
-      - ./frontend:/app/frontend
+      - ./frontend/:/app/frontend/
       - /app/frontend/node_modules
     ports:
       - "3000:3000"
     env_file:
-      - frontend/.env
+      - frontend/.env.prod
     stdin_open: true
 
   db:
