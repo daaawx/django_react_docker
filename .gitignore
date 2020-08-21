@@ -138,4 +138,4 @@ dmypy.json
 *.iml
 out
 gen
-staticfiles
+backend/staticfiles
