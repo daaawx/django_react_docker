@@ -2,9 +2,12 @@
 
 An example project using Django, React and Docker 🐳
 
-How to run:
+How to run for **local development**:
 ```
-cd frontend && npm install
-cd ..
 docker-compose up --build
+```
+
+How to run for **production**:
+```
+docker-compose -f docker-compose.prod.yml up --build
 ```

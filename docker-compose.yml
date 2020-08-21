@@ -20,7 +20,7 @@ services:
     command: "npm start"
     volumes:
       - ./frontend:/app/frontend
-      - /app/frontend/node_modules
+      - node_modules:/app/frontend/node_modules
     ports:
       - "3000:3000"
     env_file:
@@ -38,5 +38,4 @@ services:
 
 volumes:
   postgres_data:
-
-
+  node_modules:
