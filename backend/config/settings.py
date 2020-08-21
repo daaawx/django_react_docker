@@ -136,6 +136,6 @@ REST_FRAMEWORK = {
 }
 # CORS
 INSTALLED_APPS += ['corsheaders']
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
-]
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)

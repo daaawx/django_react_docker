@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const API_URL = 'http://127.0.0.1:8000';
+
+class App extends Component {
+  state = {
+    todos: [],
+  };
+
+  async componentDidMount() {
+    try {
+      let res = await fetch(`${API_URL}/api/`);
+      let todos = await res.json();
+      this.setState({
+        todos,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  render() {
+    return (
+        <div>
+          {
+            this.state.todos.map(i => (
+                <div key={i.id}>
+                  <h1>{i.title}</h1>
+                  <h5>{i.description}</h5>
+                </div>
+            ))
+          }
+        </div>
+    );
+  }
+
 }
 
 export default App;
