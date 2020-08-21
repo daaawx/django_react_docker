@@ -2,6 +2,8 @@ FROM node:14.8.0-stretch
 
 WORKDIR /app/frontend
 
-COPY ./package.json .
+COPY . .
 
-RUN npm install && npm cache clean --force
+RUN npm install
+
+ENV PATH ./node_modules/.bin/:$PATH
